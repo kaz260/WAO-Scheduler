@@ -1,0 +1,36 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: oc-scheduler-config
+  namespace: kube-system
+data:
+  policy.cfg: |
+    {
+     "kind" : "Policy",
+     "apiVersion" : "v1",
+     "metadata" : {
+        "name": "oc-scheduler-config",
+        "namespace": "kube-system"
+     },
+     "predicates" : [
+        {"name" : "PodFitsResources"},
+        {"name" : "PodToleratesNodeTaints"},
+        {"name" : "MatchInterPodAffinity"}
+     ],
+     "priorities":[
+        {"name" : "NodePreferAvoidPodsPriority", "weight" : 10000}
+     ]
+    } 
+  plugin.yaml: |
+    kind: KubeSchedulerConfiguration
+    apiVersion: kubescheduler.config.k8s.io/v1beta1
+    leaderElection:
+      leaderElect: false
+    profiles:
+    - plugins: 
+        score:
+          enabled:
+          - name: oc-score-plugin
+            weight: 100
+      schedulerName: oc-scheduler
+    percentageOfNodesToScore: 100
