@@ -2,7 +2,7 @@
 Kubernetes is a portable, extensible, open source platform for facilitating declarative configuration management and automation, and managing containerized workloads and services. Kubernetes has a huge and fast-growing ecosystem with a wide range of services, support and tools available.
 (Workload Allocation Optimizer)WAO-Scheduler plugin is one of Kubernetes' scheduler plugin implementations that minimizes power growth when placing workloads on nodes.
 
-##Architecture overview
+## Architecture overview
 ![architecture](https://user-images.githubusercontent.com/2385205/113537581-102f9c00-9614-11eb-84a1-8f75a96419d1.png)
 
 ## Install
