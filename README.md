@@ -6,8 +6,7 @@ Architecture overview
 ## Install
 ### Building from source
 To build MinimizePower plugin from source code, first ensure that have a working Go environment with version 1.15.1 or greater installed. You also  need Kubernetes  with verson 1.19.7.
-In addition, it is necessary to prepare a power consumption model for each node and make it available for reference by Tensorflow Serving. and ipmi_exporter should be installed in all nodes.
-You can also clone the repository yourself and build using make build, which will compile in the web assets so that Prometheus can be run from anywhere:
+In addition, it is necessary to prepare a power consumption model for each node and make it available for reference by Tensorflow Serving and ipmi_exporter should be installed in all nodes.
 
 $ curl -L -o kubernetes.tar.gz https://github.com/kubernetes/kubernetes/archive/v1.19.7.tar.gz
 $ tar xvf kubernetes.tar.gz
@@ -17,11 +16,11 @@ $ go get github.com/prometheus/prom2json
 $ cd ~kubernetes/cmd/kube-scheduler/
 $ CG0_ENABLE=0 go build -mod=mod scheduler.go
 
-Deploy to Kubernetes
+## Deploy to Kubernetes
 1. build Docker image of scheduler using Dockerfile like this:
-FROM busybox
+```ROM busybox
 ADD ./kube-scheduler /usr/local/bin/kube-scheduler
-
+```
 2. now build Docker image of scheduler using Dockerfile like this:
 docker build t [your-local-repositry]/[image-name] .
 Docker image push [your-local-registry]/[image-name]
@@ -36,13 +35,14 @@ kubectl create -f oc_configmap.yaml
 kubectl create -f tensorflow-server-dep.yaml
 
 6. give each node the following label;
-	ambient/max: Maximum ambient temperature in celsius.
-	ambient/min: Minimum ambient temperature in celsius.
-	cpu1/max: Maximum CPU1 temperature in celsius.
-	cpu1/min: Minimum CPU1 temperature in celsius.
-	cpu2/max: Maximum CPU2 temperature in celsius.
-	cpu2/min: Minimum CPU2 temperature in celsius.
-	tensorflow/host: IP address of tensorflow serving.
+- ambient/max: Maximum ambient temperature in celsius.
+- ambient/min: Minimum ambient temperature in celsius.
+- cpu1/max: Maximum CPU1 temperature in celsius.
+- cpu1/min: Minimum CPU1 temperature in celsius.
+- cpu2/max: Maximum CPU2 temperature in celsius.
+- cpu2/min: Minimum CPU2 temperature in celsius.
+- tensorflow/host: IP address of tensorflow serving.
+- 
 7. launch MinimizePower scheduler.
 kubectl create -f oc-scheduler-deployment.yaml
 
@@ -51,7 +51,5 @@ kubectl get pod -n kube-system -o wide | grep oc-scheduler
 
 9. If you want to use oc-scheduler, please refer test.yaml.
 
-:wq
-
-License
+## License
 Apache License 2.0, see LICENSE.
