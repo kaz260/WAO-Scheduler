@@ -22,8 +22,9 @@ $ CG0_ENABLE=0 go build -mod=mod scheduler.go
 ADD ./kube-scheduler /usr/local/bin/kube-scheduler
 ```
 2. now build Docker image of scheduler using Dockerfile like this:
-```$ docker build t [your-local-repositry]/[image-name] .
-$ docker image push [your-local-registry]/[image-name]
+```
+$ docker build -t [repository-address]/[image-name] .
+$ docker image push [repository-address]/[image-name]
 ```
 3. launch metrics-server.
 ```$ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
@@ -35,14 +36,14 @@ $ docker image push [your-local-registry]/[image-name]
 ```$ kubectl create -f tensorflow-server-dep.yaml
 ```
 6. give each node the following label;
-```- ambient/max: Maximum ambient temperature in celsius.
+- ambient/max: Maximum ambient temperature in celsius.
 - ambient/min: Minimum ambient temperature in celsius.
 - cpu1/max: Maximum CPU1 temperature in celsius.
 - cpu1/min: Minimum CPU1 temperature in celsius.
 - cpu2/max: Maximum CPU2 temperature in celsius.
 - cpu2/min: Minimum CPU2 temperature in celsius.
 - tensorflow/host: IP address of tensorflow serving.
-```
+
 7. launch MinimizePower scheduler.
 ```$ kubectl create -f oc-scheduler-deployment.yaml
 ```
