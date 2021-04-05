@@ -42,7 +42,7 @@ $ docker image push [your-local-registry]/[image-name]
 - cpu2/max: Maximum CPU2 temperature in celsius.
 - cpu2/min: Minimum CPU2 temperature in celsius.
 - tensorflow/host: IP address of tensorflow serving.
-- ```
+```
 7. launch MinimizePower scheduler.
 ```$ kubectl create -f oc-scheduler-deployment.yaml
 ```
