@@ -4,7 +4,7 @@ Kubernetes is a portable, extensible, open source platform for facilitating decl
 
 ## Architecture overview
 WAO-scheduler gets get the CPU usage of each node with Metrics-server, also get the ambient temperature and CPU temperature with ipmi_exporter. Then WAO-Scheduler predicts power increases with Tensorflow-serving and score the nodes. Finally, WAO-Scheduler selects the node that is expected to the power increase is minimum.
-![architecture](https://user-images.githubusercontent.com/2385205/113537581-102f9c00-9614-11eb-84a1-8f75a96419d1.png)
+![architecture](https://user-images.githubusercontent.com/2385205/113538962-8a155480-9617-11eb-9215-77ddffdaa5b7.png)
 
 ## Install
 ### Building from source
