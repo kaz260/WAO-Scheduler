@@ -22,18 +22,22 @@ $ CG0_ENABLE=0 go build -mod=mod scheduler.go
 ADD ./kube-scheduler /usr/local/bin/kube-scheduler
 ```
 2. now build Docker image of scheduler using Dockerfile like this:
-docker build t [your-local-repositry]/[image-name] .
-Docker image push [your-local-registry]/[image-name]
-
+```
+$ docker build t [your-local-repositry]/[image-name] .
+$ docker image push [your-local-registry]/[image-name]
+```
 3. launch metrics-server.
-kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
-
+```
+$ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+```
 4. create ConfigMap
-kubectl create -f oc_configmap.yaml
-
+```
+$ kubectl create -f oc_configmap.yaml
+```
 5. launch tensorflow serving
-kubectl create -f tensorflow-server-dep.yaml
-
+```
+$ kubectl create -f tensorflow-server-dep.yaml
+```
 6. give each node the following label;
 - ambient/max: Maximum ambient temperature in celsius.
 - ambient/min: Minimum ambient temperature in celsius.
@@ -42,14 +46,17 @@ kubectl create -f tensorflow-server-dep.yaml
 - cpu2/max: Maximum CPU2 temperature in celsius.
 - cpu2/min: Minimum CPU2 temperature in celsius.
 - tensorflow/host: IP address of tensorflow serving.
-- 
 7. launch MinimizePower scheduler.
-kubectl create -f oc-scheduler-deployment.yaml
-
+```
+$ kubectl create -f oc-scheduler-deployment.yaml
+```
 8. Check if minimizePower was started normally. Success if the pod status changes to "Running".
-kubectl get pod -n kube-system -o wide | grep oc-scheduler
-
+```
+$ kubectl get pod -n kube-system -o wide | grep oc-scheduler
+```
 9. If you want to use oc-scheduler, please refer test.yaml.
-
+```
+$ kubectl apply -f test.yaml
+```
 ## License
 Apache License 2.0, see LICENSE.
