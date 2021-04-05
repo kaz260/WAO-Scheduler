@@ -3,8 +3,8 @@ Kubernetes is a portable, extensible, open source platform for facilitating decl
 MinimizePower plugin is one of Kubernetes' scheduler plugin implementations that minimizes power growth when placing workloads on nodes.
 Architecture overview
 
-Install
-Building from source
+## Install
+### Building from source
 To build MinimizePower plugin from source code, first ensure that have a working Go environment with version 1.15.1 or greater installed. You also  need Kubernetes  with verson 1.19.7.
 In addition, it is necessary to prepare a power consumption model for each node and make it available for reference by Tensorflow Serving. and ipmi_exporter should be installed in all nodes.
 You can also clone the repository yourself and build using make build, which will compile in the web assets so that Prometheus can be run from anywhere:
