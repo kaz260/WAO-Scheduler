@@ -20,4 +20,4 @@ spec:
                         cpu: "1"
                     limits:
                         cpu: "0.5"
-            schedulerName: oc-scheduler
+            schedulerName: wao-scheduler
