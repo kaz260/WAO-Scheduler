@@ -1,4 +1,4 @@
-MinimizePower plugin
+#MinimizePower plugin
 Kubernetes is a portable, extensible, open source platform for facilitating declarative configuration management and automation, and managing containerized workloads and services. Kubernetes has a huge and fast-growing ecosystem with a wide range of services, support and tools available.
 MinimizePower plugin is one of Kubernetes' scheduler plugin implementations that minimizes power growth when placing workloads on nodes.
 Architecture overview
