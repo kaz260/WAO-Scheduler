@@ -1,6 +1,6 @@
 # WAO-Scheduler plugin
 Kubernetes is a portable, extensible, open source platform for facilitating declarative configuration management and automation, and managing containerized workloads and services. Kubernetes has a huge and fast-growing ecosystem with a wide range of services, support and tools available.
-WAO-Scheduler plugin is one of Kubernetes' scheduler plugin implementations that minimizes power growth when placing workloads on nodes.
+(Workload Allocation Optimizer)WAO-Scheduler plugin is one of Kubernetes' scheduler plugin implementations that minimizes power growth when placing workloads on nodes.
 Architecture overview
 
 ## Install
@@ -12,6 +12,7 @@ $ curl -L -o kubernetes.tar.gz https://github.com/kubernetes/kubernetes/archive/
 $ tar xvf kubernetes.tar.gz
 $ curl -L -o https://github.com/kaz260/WAO-Scheduler
 $ cp plugins ~kubernetes/pkg/scheduler/framework/plugins
+  ※　Overwrite if there are duplicates
 $ go get github.com/prometheus/prom2json
 $ cd ~kubernetes/cmd/kube-scheduler/
 $ CG0_ENABLE=0 go build -mod=mod scheduler.go
