@@ -1,9 +1,9 @@
 # WAO-Scheduler plugin
 Kubernetes is a portable, extensible, open source platform for facilitating declarative configuration management and automation, and managing containerized workloads and services. Kubernetes has a huge and fast-growing ecosystem with a wide range of services, support and tools available.
-(Workload Allocation Optimizer)WAO-Scheduler plugin is one of Kubernetes' scheduler plugin implementations that minimizes power increase when placing workloads on nodes.
+(Workload Allocation Optimizer)WAO-Scheduler plugin is one of Kubernetes' scheduler plugin implementations that minimizes power increases when placing workloads on nodes.
 
 ## Architecture overview
-WAO-scheduler gets get the CPU usage of each node with Metrics-server, also get the ambient temperature and CPU temperature with ipmi_exporter. Then WAO-Scheduler predicts power increases with Tensorflow-serving and score the nodes. Finally, WAO-Scheduler selects the node that is expected to the power increase is minimum.
+WAO-scheduler gets the CPU usage of each node with Metrics-server, also gets the ambient temperature and CPU temperature with ipmi_exporter. Then WAO-Scheduler predicts power increases with Tensorflow-serving and score the nodes. Finally, WAO-Scheduler selects the node that is expected to the power increases is minimum.
 ![architecture](https://user-images.githubusercontent.com/2385205/113538962-8a155480-9617-11eb-9215-77ddffdaa5b7.png)
 
 ## Install
