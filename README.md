@@ -27,7 +27,7 @@ ADD ./kube-scheduler /usr/local/bin/kube-scheduler
 ```
 2. now build Docker image of scheduler using Dockerfile like this:
 ``` 
-$ docker build -t [repository-address]/[image-name] \.
+$ docker build -t [repository-address]/[image-name] .
 $ docker image push [repository-address]/[image-name]
 ```
 3. launch metrics-server
