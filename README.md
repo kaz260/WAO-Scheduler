@@ -1,6 +1,6 @@
-# MinimizePower plugin
+# WAO-Scheduler plugin
 Kubernetes is a portable, extensible, open source platform for facilitating declarative configuration management and automation, and managing containerized workloads and services. Kubernetes has a huge and fast-growing ecosystem with a wide range of services, support and tools available.
-MinimizePower plugin is one of Kubernetes' scheduler plugin implementations that minimizes power growth when placing workloads on nodes.
+WAO-Scheduler plugin is one of Kubernetes' scheduler plugin implementations that minimizes power growth when placing workloads on nodes.
 Architecture overview
 
 ## Install
@@ -32,7 +32,7 @@ $ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/la
 ```
 4. create ConfigMap
 ``` 
-$ kubectl create -f oc_configmap.yaml
+$ kubectl create -f wao_configmap.yaml
 ```
 5. launch tensorflow serving
 ``` 
@@ -49,13 +49,13 @@ $ kubectl create -f tensorflow-server-dep.yaml
 
 7. launch MinimizePower scheduler
 ``` 
-$ kubectl create -f oc-scheduler-deployment.yaml
+$ kubectl create -f wao-scheduler-deployment.yaml
 ```
 8. Check if minimizePower was started normally. Success if the pod status changes to "Running".
 ``` 
-$ kubectl get pod -n kube-system -o wide | grep oc-scheduler
+$ kubectl get pod -n kube-system -o wide | grep wao-scheduler
 ```
-9. If you want to use oc-scheduler, please refer test.yaml.
+9. If you want to use wao-scheduler, please refer test.yaml.
 ```
 $ kubectl apply -f test.yaml
 ```
