@@ -7,7 +7,7 @@ Architecture overview
 ### Building from source
 To build MinimizePower plugin from source code, first ensure that have a working Go environment with version 1.15.1 or greater installed. You also  need Kubernetes  with verson 1.19.7.
 In addition, it is necessary to prepare a power consumption model for each node and make it available for reference by Tensorflow Serving and ipmi_exporter should be installed in all nodes.
-
+```
 $ curl -L -o kubernetes.tar.gz https://github.com/kubernetes/kubernetes/archive/v1.19.7.tar.gz
 $ tar xvf kubernetes.tar.gz
 $ curl -L -o https://github.com/kaz260/WAO-Scheduler
@@ -15,7 +15,7 @@ $ cp plugins ~kubernetes/pkg/scheduler/framework/plugins
 $ go get github.com/prometheus/prom2json
 $ cd ~kubernetes/cmd/kube-scheduler/
 $ CG0_ENABLE=0 go build -mod=mod scheduler.go
-
+```
 ## Deploy to Kubernetes
 1. build Docker image of scheduler using Dockerfile like this:
 ```ROM busybox
