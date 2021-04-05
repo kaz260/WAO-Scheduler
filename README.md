@@ -26,7 +26,7 @@ ADD ./kube-scheduler /usr/local/bin/kube-scheduler
 $ docker build -t [repository-address]/[image-name] .
 $ docker image push [repository-address]/[image-name]
 ```
-3. launch metrics-server.
+3. launch metrics-server
 ```$ kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
 4. create ConfigMap
@@ -44,7 +44,7 @@ $ docker image push [repository-address]/[image-name]
 - cpu2/min: Minimum CPU2 temperature in celsius.
 - tensorflow/host: IP address of tensorflow serving.
 
-7. launch MinimizePower scheduler.
+7. launch MinimizePower scheduler
 ```$ kubectl create -f oc-scheduler-deployment.yaml
 ```
 8. Check if minimizePower was started normally. Success if the pod status changes to "Running".
