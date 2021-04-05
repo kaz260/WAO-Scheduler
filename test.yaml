@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: test-minimize-sch
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            application: test-minimize-sch
+    template:
+        metadata:
+            labels:
+                application: test-minimize-sch
+        spec:
+            containers:
+                - name: test-minimize-scheduler
+                image: httpd
+                resources:
+                    requests:
+                        cpu: "1"
+                    limits:
+                        cpu: "0.5"
+            schedulerName: oc-scheduler
