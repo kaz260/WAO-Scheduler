@@ -93,7 +93,8 @@ $ cp plugins ~kubernetes/pkg/scheduler/framework/plugins
     ```
     kubectl create -f wao-scheduler-deployment.yaml
     ```
-    Check if minimizePower was started normally. Success if the pod status changes to "Running".
+    Success if you can confirm the startup on each node with the following command
+    (Successful if the pod status is [Running])
     ``` 
     kubectl get pod -n kube-system -o wide | grep wao-scheduler
     ```
