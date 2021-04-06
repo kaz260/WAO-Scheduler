@@ -2,6 +2,7 @@
 
 ---
 Kubernetes is a portable, extensible, open source platform for facilitating declarative configuration management and automation, and managing containerized workloads and services. Kubernetes has a huge and fast-growing ecosystem with a wide range of services, support and tools available.
+
 This Document shows the steps to build and deploy Workload Allocation Optimizer (WAO)-Scheduler with power minimizing policy.
 
 ---
